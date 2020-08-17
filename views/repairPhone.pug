@@ -1,0 +1,22 @@
+html
+    head
+        meta(charset='UTF-8')
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css', integrity='sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z', crossorigin='anonymous')
+        link(rel="stylesheet", href="/css/style.css")
+        title Test work
+
+    body
+        include components/navbar.pug
+        .container
+            .row
+                .col-md-3
+                .col-md-6.col-sm-12.mt-5
+                    .card
+                        .card-body
+                            h5.catd-title Восстановление номера
+                            form(action="/repair" method="POST")
+                                .form-group
+                                    label(for="email")
+                                    input.form-control(type="email" id="email" placeholder="Email" name="email" required)
+                                button.btn.btn-primary(id="btn-submit") Восстановить
+                .col-md-3

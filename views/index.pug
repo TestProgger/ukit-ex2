@@ -1,0 +1,35 @@
+html
+    head
+        meta(charset='UTF-8')
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css', integrity='sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z', crossorigin='anonymous')
+        link(rel="stylesheet", href="/css/style.css")
+        title Test work
+
+    body
+        include components/navbar.pug
+        .container
+            if phoneError
+                .row
+                    .col-md-3
+                    .col-md-6.alert.alert-danger.mt-3 Неверно задан номер телефона
+                    .col-md-3
+            if emailError
+                .row
+                    .col-md-3
+                    .col-md-6.alert.alert-danger.mt-3 Неверно задан Email
+                    .col-md-3
+            .row
+                .col-md-3
+                .col-md-6.col-sm-12.mt-5
+                    .card
+                        .card-body
+                            h5.catd-title Добаление данных
+                            form(action="/" method="POST")
+                                .form-group
+                                    label(for="phone") 
+                                    input.form-control(type="tel" id="phone" placeholder="Телефон" name="phone" required)
+                                .form-group
+                                    label(for="email")
+                                    input.form-control(type="email" id="email" placeholder="Email" name="email" required)
+                                button.btn.btn-primary(id="btn-submit") Добавить
+                .col-md-3
