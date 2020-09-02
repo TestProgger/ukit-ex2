@@ -99,14 +99,12 @@ app.post("/repair", async (request, response) => {
 app.post("/", async (request, response) => {
   if (!phoneRegExp.test(request.body.phone)) {
     phoneError = true;
-    response.redirect("/");
-    return;
+    return response.redirect("/");
   }
 
   if (!emailRegExp.test(request.body.email)) {
     emailError = true;
-    response.redirect("/");
-    return;
+    return response.redirect("/");
   }
 
   const hash = crypto.createHash("sha256");
@@ -120,8 +118,8 @@ app.post("/", async (request, response) => {
     }
     if (result.length) {
       retCode = -1;
-      response.redirect("/events");
-      return;
+      return response.redirect("/events");
+      
     } else {
       collection.insertOne({ phone, email }, (error, result) => {
         if (error) {
