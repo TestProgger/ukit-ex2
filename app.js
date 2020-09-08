@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 
 const helmet = require("helmet");
-const bodyParser = require("body-parser");
 
 const MongoClient = require("mongodb").MongoClient;
 
@@ -19,7 +18,7 @@ let retCode = 0;
 
 // Const variables
 const port = 3000;
-const urlEncoded = bodyParser.urlencoded({ extended: true });
+
 
 const { MONGO_URL } = require("./config.json");
 const client = new MongoClient(MONGO_URL, { useUnifiedTopology: true });
@@ -38,8 +37,8 @@ const emailRegExp = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
 
 // Configs
 app.use(express.static(__dirname + "/public"));
+app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
-app.use(urlEncoded);
 app.set("view engine", "pug");
 
 // Routes
