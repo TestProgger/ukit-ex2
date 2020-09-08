@@ -135,9 +135,6 @@ app.post("/", async (request, response) => {
 });
 
 async function sendMail(email, phone) {
-  console.log(email, phone);
-
-  let testEmailAccount = await nodemailer.createTestAccount();
 
   const transporter = nodemailer.createTransport({
     host: SMTP.HOST, // Здесь должен быть адресс вашего SMTP сервера
